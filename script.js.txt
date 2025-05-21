@@ -1,0 +1,45 @@
+const shop = document.getElementById('shop');
+
+const products = [
+  {
+    name: 'Crystal Sword',
+    price: '$9.99',
+    image: 'https://via.placeholder.com/200x200.png?text=Crystal+Sword'
+  },
+  {
+    name: 'Shadow Cloak',
+    price: '$12.99',
+    image: 'https://via.placeholder.com/200x200.png?text=Shadow+Cloak'
+  },
+  {
+    name: 'Epic Helmet',
+    price: '$7.99',
+    image: 'https://via.placeholder.com/200x200.png?text=Epic+Helmet'
+  },
+  {
+    name: 'Glider Pack',
+    price: '$14.99',
+    image: 'https://via.placeholder.com/200x200.png?text=Glider+Pack'
+  }
+];
+
+function displayProducts() {
+  shop.innerHTML = '';
+  products.forEach((item) => {
+    const card = document.createElement('div');
+    card.className = 'product';
+    card.innerHTML = `
+      <img src="${item.image}" alt="${item.name}" />
+      <h2>${item.name}</h2>
+      <p>${item.price}</p>
+      <button onclick="addToCart('${item.name}')">Add to Cart</button>
+    `;
+    shop.appendChild(card);
+  });
+}
+
+function addToCart(itemName) {
+  alert(`${itemName} added to cart!`);
+}
+
+displayProducts();
